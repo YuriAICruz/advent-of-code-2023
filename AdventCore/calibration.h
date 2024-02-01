@@ -1,15 +1,8 @@
 ﻿#pragma once
+#include "config.h"
 #include <list>
 #include <string>
 
-#pragma once
-#define CORE_EXPORTS
-
-#ifdef CORE_EXPORTS
-#define CORE_API __declspec(dllexport)
-#else
-#define CORE_API __declspec(dllimport)
-#endif
 
 class CORE_API Calibration
 {
