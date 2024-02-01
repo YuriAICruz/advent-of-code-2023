@@ -16,5 +16,7 @@ namespace core
         int id;
         std::list<cubesSet> sets;
         int sum(std::string color);
+        int max_value(std::string color);
+        int power();
     };
 }

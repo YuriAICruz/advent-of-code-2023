@@ -1,5 +1,7 @@
 ﻿#include "cubeGame.h"
 
+#include <map>
+
 #include "../stringUtils.h"
 
 void core::cubeGame::extractId(std::string& rawData)
@@ -46,4 +48,52 @@ int core::cubeGame::sum(std::string color)
     }
 
     return sum;
+}
+
+int core::cubeGame::max_value(std::string color)
+{
+    int max = 0;
+    size_t colorHash = std::hash<std::string>{}(color);
+
+    for (cubesSet set : sets)
+    {
+        for (cube cube : set.cubes)
+        {
+            if (cube.colorHash == colorHash && cube.quantity > max)
+            {
+                max = cube.quantity;
+            }
+        }
+    }
+
+    return max;
+}
+
+struct hash_min
+{
+    int min;
+    size_t hash;
+};
+
+int core::cubeGame::power()
+{
+    std::map<size_t, int> values;
+    for (cubesSet set : sets)
+    {
+        for (cube cube : set.cubes)
+        {
+            if(cube.quantity > values[cube.colorHash])
+            {
+                values[cube.colorHash] = cube.quantity;
+            }
+        }
+    }
+
+    int power = 1;
+    for (auto value : values)
+    {
+        power *= value.second;
+    }
+
+    return power;    
 }
