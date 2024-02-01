@@ -32,7 +32,39 @@ TEST(Calibration, Spelled)
     EXPECT_EQ(29, core::calibration::filterData(&test_value));
 }
 
+TEST(Calibration, SpelledOnly)
+{
+    std::string test_value = "eightwothree";
+    EXPECT_EQ(83, core::calibration::filterData(&test_value));
+}
+
+TEST(Calibration, SpelledWithOutDigits)
+{
+    std::string test_value = "4nineeightseven2";
+    EXPECT_EQ(42, core::calibration::filterData(&test_value));
+}
+
+TEST(Calibration, SpelledAndDigitAtTheEnd)
+{
+    std::string test_value = "zoneight234";
+    EXPECT_EQ(14, core::calibration::filterData(&test_value));
+}
+
 TEST(Calibration, FullData)
+{
+    auto read = core::reader{"Data/calibration_input.txt"};
+
+    std::string line;
+    int sum = 0;
+    while (read.getNextLine(line))
+    {
+        sum += core::calibration::filterDataOnlyDecimals(&line);
+    }
+    std::cout << "\n" << sum << "\n";
+    EXPECT_EQ(55123,sum);
+}
+
+TEST(Calibration, FullDataWithSpelling)
 {
     auto read = core::reader{"Data/calibration_input.txt"};
 
@@ -43,5 +75,5 @@ TEST(Calibration, FullData)
         sum += core::calibration::filterData(&line);
     }
     std::cout << "\n" << sum << "\n";
-    EXPECT_EQ(55123,sum);
+    EXPECT_EQ(55260,sum);
 }
