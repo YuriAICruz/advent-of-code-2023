@@ -3,10 +3,13 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
-
-.idea/
 */Debug/
 /Debug/Data/
+
+# IDEs
+.idea/
+.vs/
+
 # Prerequisites
 *.d
 
