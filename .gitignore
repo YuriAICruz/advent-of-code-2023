@@ -4,6 +4,9 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 
+.idea/
+*/Debug/
+
 # Prerequisites
 *.d
 
@@ -12,6 +15,10 @@ riderModule.iml
 *.lo
 *.o
 *.obj
+*.exp
+*.pdb
+*.ilk
+*vcxproj.filters
 
 # Precompiled Headers
 *.gch
