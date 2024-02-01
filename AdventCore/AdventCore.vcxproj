@@ -156,10 +156,12 @@
   <ItemGroup>
     <ClCompile Include="calibration.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="reader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="calibration.h" />
     <ClInclude Include="config.h" />
+    <ClInclude Include="reader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
