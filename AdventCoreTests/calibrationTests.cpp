@@ -1,6 +1,7 @@
+﻿#pragma once
 #include "gtest/gtest.h"
-#include "calibration.h"
-#include "reader.h"
+#include "src/Calibration/calibration.h"
+#include "src/reader.h"
 
 TEST(Calibration, FirstEnd)
 {
@@ -52,7 +53,7 @@ TEST(Calibration, SpelledAndDigitAtTheEnd)
 
 TEST(Calibration, FullData)
 {
-    auto read = core::reader{"Data/calibration_input.txt"};
+    auto read = core::reader{"Data/1_calibration_input.txt"};
 
     std::string line;
     int sum = 0;
@@ -66,7 +67,7 @@ TEST(Calibration, FullData)
 
 TEST(Calibration, FullDataWithSpelling)
 {
-    auto read = core::reader{"Data/calibration_input.txt"};
+    auto read = core::reader{"Data/1_calibration_input.txt"};
 
     std::string line;
     int sum = 0;

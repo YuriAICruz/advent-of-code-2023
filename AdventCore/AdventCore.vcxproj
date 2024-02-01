@@ -154,14 +154,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="calibration.cpp" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="reader.cpp" />
+    <ClCompile Include="src\Calibration\calibration.cpp" />
+    <ClCompile Include="src\CubeGame\cube.cpp" />
+    <ClCompile Include="src\CubeGame\cubeGame.cpp" />
+    <ClCompile Include="src\CubeGame\cubesSet.cpp" />
+    <ClCompile Include="src\reader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="calibration.h" />
-    <ClInclude Include="config.h" />
-    <ClInclude Include="reader.h" />
+    <ClInclude Include="src\Calibration\calibration.h" />
+    <ClInclude Include="src\config.h" />
+    <ClInclude Include="src\CubeGame\cube.h" />
+    <ClInclude Include="src\CubeGame\cubeGame.h" />
+    <ClInclude Include="src\CubeGame\cubesSet.h" />
+    <ClInclude Include="src\listUtils.h" />
+    <ClInclude Include="src\reader.h" />
+    <ClInclude Include="src\stringUtils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
