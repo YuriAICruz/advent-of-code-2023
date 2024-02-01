@@ -19,6 +19,7 @@ riderModule.iml
 *.pdb
 *.ilk
 *vcxproj.filters
+*.user
 
 # Precompiled Headers
 *.gch
