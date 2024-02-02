@@ -156,9 +156,9 @@
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="src\Calibration\calibration.cpp" />
-    <ClCompile Include="src\CubeGame\cube.cpp" />
     <ClCompile Include="src\CubeGame\cubeGame.cpp" />
     <ClCompile Include="src\CubeGame\cubesSet.cpp" />
+    <ClCompile Include="src\grid.cpp" />
     <ClCompile Include="src\reader.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +167,7 @@
     <ClInclude Include="src\CubeGame\cube.h" />
     <ClInclude Include="src\CubeGame\cubeGame.h" />
     <ClInclude Include="src\CubeGame\cubesSet.h" />
+    <ClInclude Include="src\grid.h" />
     <ClInclude Include="src\listUtils.h" />
     <ClInclude Include="src\reader.h" />
     <ClInclude Include="src\stringUtils.h" />
