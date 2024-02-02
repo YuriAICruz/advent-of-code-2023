@@ -11,5 +11,6 @@ namespace core
         explicit reader(const char* file_path);
         ~reader();
         bool getNextLine(std::string& result);
+        void reset();
     };
 }

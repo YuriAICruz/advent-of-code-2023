@@ -11,11 +11,6 @@ namespace core
 
     reader::reader(const char* file_path)
     {
-        std::ifstream file(file_path);
-        std::string result;
-        std::getline(file, result);
-        std::getline(file, result);
-        file.close();
         _file.open(file_path);
 
 #ifdef _DEBUG
@@ -48,5 +43,11 @@ namespace core
         }
 
         return false;
+    }
+
+    void reader::reset()
+    {
+        _file.clear();
+        _file.seekg(0);
     }
 }
