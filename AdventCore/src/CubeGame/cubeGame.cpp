@@ -4,96 +4,99 @@
 
 #include "../stringUtils.h"
 
-void core::cubeGame::extractId(std::string& rawData)
+namespace core
 {
-    std::string delimiter = ":";
-    auto iterator = stringUtils::split(rawData, delimiter).begin();
-    
-    std::string s = iterator.operator*();
-    std::string id = s.substr(s.find(' '), s.length());
-    this->id = atoi(id.c_str());
-
-    rawData.erase(0, rawData.find(delimiter) + delimiter.length());
-}
-
-void core::cubeGame::extractSets(std::string& rawData)
-{
-    stringUtils::stringSplitter iterator = stringUtils::split(rawData, ";");
-    for (auto value : iterator)
+    void cubeGame::extractId(std::string& rawData)
     {
-        sets.emplace_back(value);
+        std::string delimiter = ":";
+        auto iterator = stringUtils::split(rawData, delimiter).begin();
+
+        std::string s = iterator.operator*();
+        std::string id = s.substr(s.find(' '), s.length());
+        this->id = atoi(id.c_str());
+
+        rawData.erase(0, rawData.find(delimiter) + delimiter.length());
     }
-}
 
-core::cubeGame::cubeGame(std::string rawData)
-{
-    extractId(rawData);
-    extractSets(rawData);
-}
-
-int core::cubeGame::sum(std::string color)
-{
-    int sum = 0;
-    auto colorHash = std::hash<std::string>{}(color);
-
-    for (cubesSet set : sets)
+    void cubeGame::extractSets(std::string& rawData)
     {
-        for (cube cube : set.cubes)
+        stringUtils::stringSplitter iterator = stringUtils::split(rawData, ";");
+        for (auto value : iterator)
         {
-            if (cube.colorHash == colorHash)
-            {
-                sum += cube.quantity;
-            }
+            sets.emplace_back(value);
         }
     }
 
-    return sum;
-}
-
-int core::cubeGame::max_value(std::string color)
-{
-    int max = 0;
-    size_t colorHash = std::hash<std::string>{}(color);
-
-    for (cubesSet set : sets)
+    cubeGame::cubeGame(std::string rawData)
     {
-        for (cube cube : set.cubes)
+        extractId(rawData);
+        extractSets(rawData);
+    }
+
+    int cubeGame::sum(std::string color)
+    {
+        int sum = 0;
+        auto colorHash = std::hash<std::string>{}(color);
+
+        for (cubesSet set : sets)
         {
-            if (cube.colorHash == colorHash && cube.quantity > max)
+            for (cube cube : set.cubes)
             {
-                max = cube.quantity;
+                if (cube.colorHash == colorHash)
+                {
+                    sum += cube.quantity;
+                }
             }
         }
+
+        return sum;
     }
 
-    return max;
-}
-
-struct hash_min
-{
-    int min;
-    size_t hash;
-};
-
-int core::cubeGame::power()
-{
-    std::map<size_t, int> values;
-    for (cubesSet set : sets)
+    int cubeGame::max_value(std::string color)
     {
-        for (cube cube : set.cubes)
+        int max = 0;
+        size_t colorHash = std::hash<std::string>{}(color);
+
+        for (cubesSet set : sets)
         {
-            if(cube.quantity > values[cube.colorHash])
+            for (cube cube : set.cubes)
             {
-                values[cube.colorHash] = cube.quantity;
+                if (cube.colorHash == colorHash && cube.quantity > max)
+                {
+                    max = cube.quantity;
+                }
             }
         }
+
+        return max;
     }
 
-    int power = 1;
-    for (auto value : values)
+    struct hash_min
     {
-        power *= value.second;
-    }
+        int min;
+        size_t hash;
+    };
 
-    return power;    
+    int cubeGame::power()
+    {
+        std::map<size_t, int> values;
+        for (cubesSet set : sets)
+        {
+            for (cube cube : set.cubes)
+            {
+                if (cube.quantity > values[cube.colorHash])
+                {
+                    values[cube.colorHash] = cube.quantity;
+                }
+            }
+        }
+
+        int power = 1;
+        for (auto value : values)
+        {
+            power *= value.second;
+        }
+
+        return power;
+    }
 }
