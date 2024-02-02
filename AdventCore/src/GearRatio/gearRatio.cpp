@@ -2,12 +2,12 @@
 
 namespace core
 {
-    int gearRatio::sumRatio()
+    int gearRatio::sumPartNumbers()
     {
         grid::vector2 position = {0, 0};
 
         int sum = 0;
-        while (position.x >= 0 || position.y >= 0)
+        while (position.x >= 0 && position.y >= 0)
         {
             if (_grid.isDigit(position))
             {
@@ -37,7 +37,27 @@ namespace core
         return sum;
     }
 
-    void gearRatio::moveNext(grid::vector2& position)
+    int gearRatio::sumAll()
+    {
+        grid::vector2 position = {0, 0};
+
+        int sum = 0;
+        while (position.x >= 0 && position.y >= 0)
+        {
+            if (_grid.isDigit(position))
+            {
+                sum += _grid.getNumber(position);
+                moveNextSkipNumber(position);
+                moveBack(position);
+            }
+
+            moveNext(position);
+        }
+
+        return sum;
+    }
+
+    bool gearRatio::moveNext(grid::vector2& position)
     {
         position.x++;
 
@@ -50,11 +70,19 @@ namespace core
             {
                 position = {-1, -1};
             }
+            return true;
         }
+
+        return false;
     }
 
     void gearRatio::moveBack(grid::vector2& position)
     {
+        if (position.x < 0)
+        {
+            return;
+        }
+
         position.x--;
 
         if (position.x < 0)
@@ -65,9 +93,12 @@ namespace core
 
     void gearRatio::moveNextSkipNumber(grid::vector2& position)
     {
-        moveNext(position);
+        if (moveNext(position))
+        {
+            return;
+        }
 
-        if (_grid.isDigit(position))
+        if (position.x >= 0 && position.y >= 0 && _grid.isDigit(position))
         {
             moveNextSkipNumber(position);
         }
