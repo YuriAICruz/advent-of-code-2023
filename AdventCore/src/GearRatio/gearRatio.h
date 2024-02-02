@@ -50,6 +50,7 @@ namespace core
             _grid = grid(size);
 
             int i = 0;
+            read.reset();
             while(read.getNextLine(lineData))
             {
                 _grid.setLineValues(lineData, i);
@@ -57,11 +58,12 @@ namespace core
             }
         }
 
-        int sumRatio();
+        int sumPartNumbers();
+        int sumAll();
 
     private:
         grid _grid;
-        void moveNext(grid::vector2& position);
+        bool moveNext(grid::vector2& position);
         void moveBack(grid::vector2& position);
         void moveNextSkipNumber(grid::vector2& position);
     };
