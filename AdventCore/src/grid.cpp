@@ -56,14 +56,14 @@ namespace core
 
     int grid::getNumber(vector2 position)
     {
-        char v = _grid[position.x][position.y].value;
-
-        int result = v - '0';
-
-        if (!std::isdigit(v))
+        if (!isDigit(position))
         {
             return 0;
         }
+
+        char v = _grid[position.x][position.y].value;
+
+        int result = v - '0';
 
         vector2 currentPosition = position;
         while (getNextDigit(result, currentPosition, -1))
@@ -76,6 +76,11 @@ namespace core
         return result;
     }
 
+    bool grid::isDigit(vector2 position)
+    {
+        return std::isdigit(_grid[position.x][position.y].value);
+    }
+
     bool grid::getNextDigit(int& result, vector2& position, int direction)
     {
         position = position + vector2{direction, 0};
@@ -85,13 +90,13 @@ namespace core
             return false;
         }
 
-        char v = _grid[position.x][position.y].value;
-        int digit = v - '0';
-
-        if (!std::isdigit(v))
+        if (!isDigit(position))
         {
             return false;
         }
+
+        char v = _grid[position.x][position.y].value;
+        int digit = v - '0';
 
         int elevation = max(1, pow(10, -direction));
         int elevationInv = max(1, pow(10, direction));

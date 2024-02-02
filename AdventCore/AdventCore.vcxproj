@@ -158,6 +158,7 @@
     <ClCompile Include="src\Calibration\calibration.cpp" />
     <ClCompile Include="src\CubeGame\cubeGame.cpp" />
     <ClCompile Include="src\CubeGame\cubesSet.cpp" />
+    <ClCompile Include="src\GearRatio\gearRatio.cpp" />
     <ClCompile Include="src\grid.cpp" />
     <ClCompile Include="src\reader.cpp" />
   </ItemGroup>
@@ -167,6 +168,7 @@
     <ClInclude Include="src\CubeGame\cube.h" />
     <ClInclude Include="src\CubeGame\cubeGame.h" />
     <ClInclude Include="src\CubeGame\cubesSet.h" />
+    <ClInclude Include="src\GearRatio\gearRatio.h" />
     <ClInclude Include="src\grid.h" />
     <ClInclude Include="src\listUtils.h" />
     <ClInclude Include="src\reader.h" />
