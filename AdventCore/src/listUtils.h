@@ -7,10 +7,12 @@ namespace core
     class CORE_API listUtils
     {
     public:
-        static int sum(std::list<core::cubeGame> list, int (*func)(core::cubeGame))
+
+        template <typename T>
+        static int sum(std::list<T> list, int (*func)(T))
         {
             int sum = 0;
-            for (core::cubeGame element : list)
+            for (T element : list)
             {
                 sum += func(element);
             }
