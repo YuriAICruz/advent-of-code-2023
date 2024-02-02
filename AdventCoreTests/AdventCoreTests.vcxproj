@@ -38,6 +38,7 @@
   <ItemGroup>
     <ClCompile Include="calibrationTests.cpp" />
     <ClCompile Include="cubeGameTests.cpp" />
+    <ClCompile Include="Data\gearRatioTests.cpp" />
     <ClCompile Include="gridTests.cpp" />
   </ItemGroup>
   <ItemGroup>
