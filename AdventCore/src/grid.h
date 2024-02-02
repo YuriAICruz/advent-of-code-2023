@@ -39,10 +39,14 @@ namespace core
             }
         }
 
+
+        bool isOutOfBounds(vector2 finalPosition);
         std::list<grid::cell> getNeighbours(vector2 position, int size = 1);
         void setLineValues(const std::string valueArray, int lineIndex);
+        int getNumber(vector2 position);
 
     private:
+        bool getNextDigit(int& result, vector2& vector2, int i);
         vector2 _size;
         static const vector2 _directions[8];
         std::vector<std::vector<cell>> _grid;
