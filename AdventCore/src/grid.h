@@ -48,7 +48,7 @@ namespace core
         vector2 size() { return _size; }
 
     private:
-        bool getNextDigit(int& result, vector2& vector2, int i);
+        bool getNextDigit(std::string& number, vector2& vector2, int i, int& result);
         vector2 _size;
         static const vector2 _directions[8];
         std::vector<std::vector<cell>> _grid;

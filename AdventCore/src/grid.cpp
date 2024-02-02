@@ -65,12 +65,14 @@ namespace core
 
         int result = v - '0';
 
+        std::string number;
+        number.push_back(v);
         vector2 currentPosition = position;
-        while (getNextDigit(result, currentPosition, -1))
+        while (getNextDigit(number, currentPosition, -1, result))
         {
         }
         currentPosition = position;
-        while (getNextDigit(result, currentPosition, 1))
+        while (getNextDigit(number, currentPosition, 1, result))
         {
         }
         return result;
@@ -81,7 +83,7 @@ namespace core
         return std::isdigit(_grid[position.x][position.y].value);
     }
 
-    bool grid::getNextDigit(int& result, vector2& position, int direction)
+    bool grid::getNextDigit(std::string& number, vector2& position, int direction, int& result)
     {
         position = position + vector2{direction, 0};
 
@@ -96,12 +98,17 @@ namespace core
         }
 
         char v = _grid[position.x][position.y].value;
-        int digit = v - '0';
 
-        int elevation = max(1, pow(10, -direction));
-        int elevationInv = max(1, pow(10, direction));
-        int zeros = elevationInv > 1 ? 1 : pow(10, int(log10(max(1, result))));
-        result = (result * elevationInv) + (digit * elevation*zeros);
+        if (direction < 0)
+        {
+            number = v+number;
+        }
+        else
+        {
+            number.push_back(v);
+        }
+        
+        result = atoi(number.c_str());
         return true;
     }
 }
