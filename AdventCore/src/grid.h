@@ -44,6 +44,8 @@ namespace core
         std::list<grid::cell> getNeighbours(vector2 position, int size = 1);
         void setLineValues(const std::string valueArray, int lineIndex);
         int getNumber(vector2 position);
+        bool isDigit(vector2 position);
+        vector2 size() { return _size; }
 
     private:
         bool getNextDigit(int& result, vector2& vector2, int i);
