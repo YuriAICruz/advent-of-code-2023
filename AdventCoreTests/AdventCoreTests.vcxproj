@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\**" />
-    <Content Include="gearRatioTests.h" />
+    <Content Include="gearRatioTests.cpp" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
