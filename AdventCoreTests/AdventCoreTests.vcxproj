@@ -38,7 +38,6 @@
   <ItemGroup>
     <ClCompile Include="calibrationTests.cpp" />
     <ClCompile Include="cubeGameTests.cpp" />
-    <ClCompile Include="Data\gearRatioTests.cpp" />
     <ClCompile Include="gridTests.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\**" />
+    <Content Include="gearRatioTests.h" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
