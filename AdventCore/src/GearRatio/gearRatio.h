@@ -60,6 +60,7 @@ namespace core
 
         int sumPartNumbers();
         int sumAll();
+        int sumGearRatio();
 
     private:
         grid _grid;

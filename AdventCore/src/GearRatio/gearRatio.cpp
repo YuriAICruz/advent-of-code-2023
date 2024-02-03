@@ -1,4 +1,5 @@
 ﻿#include "gearRatio.h"
+#include <map>
 
 namespace core
 {
@@ -49,6 +50,45 @@ namespace core
                 sum += _grid.getNumber(position);
                 moveNextSkipNumber(position);
                 moveBack(position);
+            }
+
+            moveNext(position);
+        }
+
+        return sum;
+    }
+
+    int gearRatio::sumGearRatio()
+    {
+        grid::vector2 position = {0, 0};
+
+        int sum = 0;
+        while (position.x >= 0 && position.y >= 0)
+        {
+            if (_grid.isChar(position, '*'))
+            {
+                std::list<grid::cell> neighbours = _grid.getNeighbours(position);
+
+                std::map<grid::vector2, int> numbers;
+                for (auto neighbour : neighbours)
+                {
+                    if (std::isdigit(neighbour.value))
+                    {
+                        grid::vector2 origin = _grid.getNumberOrigin(neighbour.position);
+                        int num = _grid.getNumber(origin);
+                        numbers.insert_or_assign(origin, num);
+                    }
+                }
+
+                if (numbers.size() == 2)
+                {
+                    int mul = 1;
+                    for (std::pair<const grid::vector2, int> value : numbers)
+                    {
+                        mul *= value.second;
+                    }
+                    sum += mul;
+                }
             }
 
             moveNext(position);
