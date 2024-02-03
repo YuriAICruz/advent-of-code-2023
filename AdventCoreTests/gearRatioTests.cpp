@@ -12,8 +12,10 @@ TEST(GearRatio, neighboursSum)
     ratio.generateGridFromText(s);
     int sum = ratio.sumPartNumbers();
     int sumAll = ratio.sumAll();
+    int sumRatios = ratio.sumGearRatio();
     EXPECT_EQ(4361, sum);
     EXPECT_EQ(4533, sumAll);
+    EXPECT_EQ(467835, sumRatios);
 }
 
 TEST(GearRatio, fullData)
