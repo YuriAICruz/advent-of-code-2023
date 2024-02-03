@@ -29,6 +29,15 @@ TEST(GearRatio, fullData)
     EXPECT_EQ(601653, sumA);
 }
 
+TEST(GearRatio, fullDataGearRatio)
+{
+    auto ratio = core::gearRatio();
+    ratio.generateGridFromFile("Data\\3_gear_ratio_input.txt");
+    core::gearRatio (s);
+    int sum = ratio.sumGearRatio();
+    EXPECT_EQ(73646890, sum);
+}
+
 TEST(GearRatio, debugData)
 {
     auto ratio = core::gearRatio();
