@@ -51,6 +51,7 @@ namespace core
         for (int i = 0, n = _grid.size(); i < n; ++i)
         {
             _grid[i][lineIndex].value = valueArray[i];
+            _grid[i][lineIndex].position = {i, lineIndex};
         }
     }
 
@@ -78,9 +79,30 @@ namespace core
         return result;
     }
 
-    bool grid::isDigit(vector2 position)
+    grid::vector2 grid::getNumberOrigin(vector2 position)
+    {
+        if (!isDigit(position))
+        {
+            return position;
+        }
+        int result = 0;
+
+        std::string number;
+        vector2 currentPosition = position;
+        while (getNextDigit(number, currentPosition, -1, result))
+        {
+        }
+        return currentPosition + vector2{1, 0};
+    }
+
+    bool grid::isDigit(vector2 position) const
     {
         return std::isdigit(_grid[position.x][position.y].value);
+    }
+
+    bool grid::isChar(vector2 position, char value) const
+    {
+        return _grid[position.x][position.y].value == value;
     }
 
     bool grid::getNextDigit(std::string& number, vector2& position, int direction, int& result)
@@ -101,13 +123,13 @@ namespace core
 
         if (direction < 0)
         {
-            number = v+number;
+            number = v + number;
         }
         else
         {
             number.push_back(v);
         }
-        
+
         result = atoi(number.c_str());
         return true;
     }
