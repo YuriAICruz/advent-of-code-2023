@@ -5,7 +5,7 @@ namespace core
 {
     int gearRatio::sumPartNumbers()
     {
-        grid::vector2 position = {0, 0};
+        vector2 position = {0, 0};
 
         int sum = 0;
         while (position.x >= 0 && position.y >= 0)
@@ -40,7 +40,7 @@ namespace core
 
     int gearRatio::sumAll()
     {
-        grid::vector2 position = {0, 0};
+        vector2 position = {0, 0};
 
         int sum = 0;
         while (position.x >= 0 && position.y >= 0)
@@ -60,7 +60,7 @@ namespace core
 
     int gearRatio::sumGearRatio()
     {
-        grid::vector2 position = {0, 0};
+        vector2 position = {0, 0};
 
         int sum = 0;
         while (position.x >= 0 && position.y >= 0)
@@ -69,12 +69,12 @@ namespace core
             {
                 std::list<grid::cell> neighbours = _grid.getNeighbours(position);
 
-                std::map<grid::vector2, int> numbers;
+                std::map<vector2, int> numbers;
                 for (auto neighbour : neighbours)
                 {
                     if (std::isdigit(neighbour.value))
                     {
-                        grid::vector2 origin = _grid.getNumberOrigin(neighbour.position);
+                        vector2 origin = _grid.getNumberOrigin(neighbour.position);
                         int num = _grid.getNumber(origin);
                         numbers.insert_or_assign(origin, num);
                     }
@@ -83,7 +83,7 @@ namespace core
                 if (numbers.size() == 2)
                 {
                     int mul = 1;
-                    for (std::pair<const grid::vector2, int> value : numbers)
+                    for (std::pair<const vector2, int> value : numbers)
                     {
                         mul *= value.second;
                     }
@@ -97,7 +97,7 @@ namespace core
         return sum;
     }
 
-    bool gearRatio::moveNext(grid::vector2& position)
+    bool gearRatio::moveNext(vector2& position)
     {
         position.x++;
 
@@ -116,7 +116,7 @@ namespace core
         return false;
     }
 
-    void gearRatio::moveBack(grid::vector2& position)
+    void gearRatio::moveBack(vector2& position)
     {
         if (position.x < 0)
         {
@@ -131,7 +131,7 @@ namespace core
         }
     }
 
-    void gearRatio::moveNextSkipNumber(grid::vector2& position)
+    void gearRatio::moveNextSkipNumber(vector2& position)
     {
         if (moveNext(position))
         {

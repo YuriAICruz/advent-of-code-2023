@@ -2,7 +2,7 @@
 
 namespace core
 {
-    const grid::vector2 grid::_directions[8] = {
+    const vector2 grid::_directions[8] = {
         {-1, -1},
         {0, -1},
         {1, -1},
@@ -13,7 +13,7 @@ namespace core
         {-1, 0},
     };
 
-    bool grid::isOutOfBounds(grid::vector2 finalPosition)
+    bool grid::isOutOfBounds(vector2 finalPosition)
     {
         if (finalPosition.x < 0 || finalPosition.x >= _size.x ||
             finalPosition.y < 0 || finalPosition.y >= _size.y)
@@ -79,7 +79,7 @@ namespace core
         return result;
     }
 
-    grid::vector2 grid::getNumberOrigin(vector2 position)
+    vector2 grid::getNumberOrigin(vector2 position)
     {
         if (!isDigit(position))
         {

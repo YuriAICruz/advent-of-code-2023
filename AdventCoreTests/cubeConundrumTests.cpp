@@ -1,6 +1,6 @@
 #pragma once
 #include "gtest/gtest.h"
-#include "src/CubeGame/cubeGame.h"
+#include "src/CubeConundrum/cubeGame.h"
 #include "src/listUtils.h"
 #include "src/reader.h"
 
@@ -19,7 +19,7 @@ int getBlue(core::cubeGame game)
     return game.sum("blue");
 }
 
-TEST(CubeGame, SumSets)
+TEST(CubeConundrum, SumSets)
 {
     auto game = core::cubeGame("Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green");
 
@@ -27,14 +27,14 @@ TEST(CubeGame, SumSets)
     EXPECT_EQ(9, game.sum("blue"));
 }
 
-TEST(CubeGame, BigIdNumber)
+TEST(CubeConundrum, BigIdNumber)
 {
     auto game = core::cubeGame("Game 152: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green");
 
     EXPECT_EQ(152, game.id);
 }
 
-TEST(CubeGame, IsPossible)
+TEST(CubeConundrum, IsPossible)
 {
     std::list<core::cubeGame> games;
     games = {
@@ -68,9 +68,9 @@ TEST(CubeGame, IsPossible)
     EXPECT_LE(61, core::listUtils::sum(games, &getRed));
 }
 
-TEST(CubeGame, FullData)
+TEST(CubeConundrum, FullData)
 {
-    auto read = core::reader{"Data/2_cube_game_input.txt"};
+    auto read = core::reader{"Data/2_cube_conundrum_input.txt"};
 
     std::string line;
     int idsSum = 0;
@@ -89,9 +89,9 @@ TEST(CubeGame, FullData)
     EXPECT_EQ(2449, idsSum);
 }
 
-TEST(CubeGame, FullDataPower)
+TEST(CubeConundrum, FullDataPower)
 {
-    auto read = core::reader{"Data/2_cube_game_input.txt"};
+    auto read = core::reader{"Data/2_cube_conundrum_input.txt"};
 
     std::string line;
     int powerSum = 0;

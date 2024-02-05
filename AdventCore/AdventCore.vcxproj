@@ -155,19 +155,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="src\Calibration\calibration.cpp" />
-    <ClCompile Include="src\CubeGame\cubeGame.cpp" />
-    <ClCompile Include="src\CubeGame\cubesSet.cpp" />
+    <ClCompile Include="src\Trebuchet\calibration.cpp" />
+    <ClCompile Include="src\CubeConundrum\cubeGame.cpp" />
+    <ClCompile Include="src\CubeConundrum\cubesSet.cpp" />
     <ClCompile Include="src\GearRatio\gearRatio.cpp" />
     <ClCompile Include="src\grid.cpp" />
     <ClCompile Include="src\reader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Calibration\calibration.h" />
+    <ClInclude Include="src\Math\vector2.h" />
+    <ClInclude Include="src\Trebuchet\calibration.h" />
     <ClInclude Include="src\config.h" />
-    <ClInclude Include="src\CubeGame\cube.h" />
-    <ClInclude Include="src\CubeGame\cubeGame.h" />
-    <ClInclude Include="src\CubeGame\cubesSet.h" />
+    <ClInclude Include="src\CubeConundrum\cube.h" />
+    <ClInclude Include="src\CubeConundrum\cubeGame.h" />
+    <ClInclude Include="src\CubeConundrum\cubesSet.h" />
     <ClInclude Include="src\GearRatio\gearRatio.h" />
     <ClInclude Include="src\grid.h" />
     <ClInclude Include="src\listUtils.h" />

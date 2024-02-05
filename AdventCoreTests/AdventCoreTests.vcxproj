@@ -37,7 +37,7 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClCompile Include="calibrationTests.cpp" />
-    <ClCompile Include="cubeGameTests.cpp" />
+    <ClCompile Include="cubeConundrumTests.cpp" />
     <ClCompile Include="gearRatioTests.cpp" />
     <ClCompile Include="gridTests.cpp" />
   </ItemGroup>

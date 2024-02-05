@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include <list>
-#include "CubeGame/cubeGame.h"
+#include "CubeConundrum/cubeGame.h"
 
 namespace core
 {

@@ -1,59 +1,59 @@
 ﻿#pragma once
 #include "gtest/gtest.h"
-#include "src/Calibration/calibration.h"
+#include "src/Trebuchet/calibration.h"
 #include "src/reader.h"
 
-TEST(Calibration, FirstEnd)
+TEST(Trebuchet, FirstEnd)
 {
     std::string test_value = "1abc2";
     EXPECT_EQ(12, core::calibration::filterData(&test_value));
 }
 
-TEST(Calibration, Middle)
+TEST(Trebuchet, Middle)
 {
     std::string test_value = "pqr3stu8vwx";
     EXPECT_EQ(38, core::calibration::filterData(&test_value));
 }
 
-TEST(Calibration, Multiple)
+TEST(Trebuchet, Multiple)
 {
     std::string test_value = "a1b2c3d4e5f";
     EXPECT_EQ(15, core::calibration::filterData(&test_value));
 }
 
-TEST(Calibration, Same)
+TEST(Trebuchet, Same)
 {
     std::string test_value = "treb7uchet";
     EXPECT_EQ(77, core::calibration::filterData(&test_value));
 }
 
-TEST(Calibration, Spelled)
+TEST(Trebuchet, Spelled)
 {
     std::string test_value = "two1nine";
     EXPECT_EQ(29, core::calibration::filterData(&test_value));
 }
 
-TEST(Calibration, SpelledOnly)
+TEST(Trebuchet, SpelledOnly)
 {
     std::string test_value = "eightwothree";
     EXPECT_EQ(83, core::calibration::filterData(&test_value));
 }
 
-TEST(Calibration, SpelledWithOutDigits)
+TEST(Trebuchet, SpelledWithOutDigits)
 {
     std::string test_value = "4nineeightseven2";
     EXPECT_EQ(42, core::calibration::filterData(&test_value));
 }
 
-TEST(Calibration, SpelledAndDigitAtTheEnd)
+TEST(Trebuchet, SpelledAndDigitAtTheEnd)
 {
     std::string test_value = "zoneight234";
     EXPECT_EQ(14, core::calibration::filterData(&test_value));
 }
 
-TEST(Calibration, FullData)
+TEST(Trebuchet, FullData)
 {
-    auto read = core::reader{"Data/1_calibration_input.txt"};
+    auto read = core::reader{"Data/1_trebuchet_input.txt"};
 
     std::string line;
     int sum = 0;
@@ -65,9 +65,9 @@ TEST(Calibration, FullData)
     EXPECT_EQ(55123,sum);
 }
 
-TEST(Calibration, FullDataWithSpelling)
+TEST(Trebuchet, FullDataWithSpelling)
 {
-    auto read = core::reader{"Data/1_calibration_input.txt"};
+    auto read = core::reader{"Data/1_trebuchet_input.txt"};
 
     std::string line;
     int sum = 0;
