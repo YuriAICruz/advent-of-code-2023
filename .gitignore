@@ -23,6 +23,7 @@ riderModule.iml
 *.ilk
 *vcxproj.filters
 *.user
+*.testdurations
 
 # Precompiled Headers
 *.gch
