@@ -16,7 +16,7 @@ namespace core
 
         void generateGridFromText(std::string rawData)
         {
-            vector2 size = {0, 0};
+            vector2Int size = {0, 0};
 
             for (auto lineData : stringUtils::split(rawData, "\n"))
             {
@@ -38,7 +38,7 @@ namespace core
         {
             auto read = reader{path};
 
-            vector2 size = {0, 0};
+            vector2Int size = {0, 0};
 
             std::string lineData;
             while(read.getNextLine(lineData))
@@ -64,8 +64,8 @@ namespace core
 
     private:
         grid _grid;
-        bool moveNext(vector2& position);
-        void moveBack(vector2& position);
-        void moveNextSkipNumber(vector2& position);
+        bool moveNext(vector2Int& position);
+        void moveBack(vector2Int& position);
+        void moveNextSkipNumber(vector2Int& position);
     };
 }

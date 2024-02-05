@@ -163,7 +163,8 @@
     <ClCompile Include="src\reader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Math\vector2.h" />
+    <ClInclude Include="src\Math\vector2Int.h" />
+    <ClInclude Include="src\Math\vector3Int.h" />
     <ClInclude Include="src\Trebuchet\calibration.h" />
     <ClInclude Include="src\config.h" />
     <ClInclude Include="src\CubeConundrum\cube.h" />

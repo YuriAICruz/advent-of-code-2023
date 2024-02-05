@@ -4,7 +4,7 @@
 
 TEST(Grid, hasNeigbour)
 {
-    auto grid = core::grid{vector2{4,4}};
+    auto grid = core::grid{vector2Int{4,4}};
     
     grid.setLineValues("212.", 0);
     grid.setLineValues("101.", 1);
@@ -41,7 +41,7 @@ TEST(Grid, hasNeigbour)
 
 TEST(Grid, getNumber)
 {    
-    auto grid = core::grid{vector2{6,6}};
+    auto grid = core::grid{vector2Int{6,6}};
     
     grid.setLineValues("123.12", 0);
     grid.setLineValues("45.562", 1);

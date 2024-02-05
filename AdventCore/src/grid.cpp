@@ -2,7 +2,7 @@
 
 namespace core
 {
-    const vector2 grid::_directions[8] = {
+    const vector2Int grid::_directions[8] = {
         {-1, -1},
         {0, -1},
         {1, -1},
@@ -13,7 +13,7 @@ namespace core
         {-1, 0},
     };
 
-    bool grid::isOutOfBounds(vector2 finalPosition)
+    bool grid::isOutOfBounds(vector2Int finalPosition)
     {
         if (finalPosition.x < 0 || finalPosition.x >= _size.x ||
             finalPosition.y < 0 || finalPosition.y >= _size.y)
@@ -23,15 +23,15 @@ namespace core
         return false;
     }
 
-    std::list<grid::cell> grid::getNeighbours(vector2 position, int size)
+    std::list<grid::cell> grid::getNeighbours(vector2Int position, int size)
     {
         std::list<cell> list;
 
-        for (vector2 direction : _directions)
+        for (vector2Int direction : _directions)
         {
             for (int i = 1; i <= size; ++i)
             {
-                vector2 finalPosition = position + (direction * i);
+                vector2Int finalPosition = position + (direction * i);
                 if (isOutOfBounds(finalPosition)) continue;
 
                 list.push_back(_grid[finalPosition.x][finalPosition.y]);
@@ -55,7 +55,7 @@ namespace core
         }
     }
 
-    int grid::getNumber(vector2 position)
+    int grid::getNumber(vector2Int position)
     {
         if (!isDigit(position))
         {
@@ -68,7 +68,7 @@ namespace core
 
         std::string number;
         number.push_back(v);
-        vector2 currentPosition = position;
+        vector2Int currentPosition = position;
         while (getNextDigit(number, currentPosition, -1, result))
         {
         }
@@ -79,7 +79,7 @@ namespace core
         return result;
     }
 
-    vector2 grid::getNumberOrigin(vector2 position)
+    vector2Int grid::getNumberOrigin(vector2Int position)
     {
         if (!isDigit(position))
         {
@@ -88,26 +88,26 @@ namespace core
         int result = 0;
 
         std::string number;
-        vector2 currentPosition = position;
+        vector2Int currentPosition = position;
         while (getNextDigit(number, currentPosition, -1, result))
         {
         }
-        return currentPosition + vector2{1, 0};
+        return currentPosition + vector2Int{1, 0};
     }
 
-    bool grid::isDigit(vector2 position) const
+    bool grid::isDigit(vector2Int position) const
     {
         return std::isdigit(_grid[position.x][position.y].value);
     }
 
-    bool grid::isChar(vector2 position, char value) const
+    bool grid::isChar(vector2Int position, char value) const
     {
         return _grid[position.x][position.y].value == value;
     }
 
-    bool grid::getNextDigit(std::string& number, vector2& position, int direction, int& result)
+    bool grid::getNextDigit(std::string& number, vector2Int& position, int direction, int& result)
     {
-        position = position + vector2{direction, 0};
+        position = position + vector2Int{direction, 0};
 
         if (isOutOfBounds(position))
         {

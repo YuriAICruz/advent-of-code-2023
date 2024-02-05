@@ -40,6 +40,7 @@
     <ClCompile Include="cubeConundrumTests.cpp" />
     <ClCompile Include="gearRatioTests.cpp" />
     <ClCompile Include="gridTests.cpp" />
+    <ClCompile Include="vectorCalculations.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
